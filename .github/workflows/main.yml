@@ -16,10 +16,11 @@ jobs:
       run: docker build -t test4 .
 
     - name: Run tests
-      run: docker run -d -p 888:88 test4 sh -c "curl localhost:888"
+      run: docker run -d -p 888:88 test4 sh
 
-    - name: Wait for container to start
-      run: sleep 10
-
-    - name: Display container logs
-      run: docker logs test4
+    - name: Run tests
+      run: |
+        curl -X POST \
+        -H "Content-Type: text/html" \
+        --data-binary @/usr/share/nginx/html/index.html \
+        http://localhost:888
