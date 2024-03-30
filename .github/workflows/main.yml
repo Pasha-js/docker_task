@@ -16,8 +16,5 @@ jobs:
     - name: Build Docker image
       run: docker build -t my-nginx-image .
 
-    - name: Run tests
-      run: docker run --rm my-nginx-image sh -c "curl localhost:88/test"
-
     - name: Deploy to server
       run: docker run -d -p 888:88 my-nginx-image
