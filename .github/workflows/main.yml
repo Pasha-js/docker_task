@@ -18,5 +18,3 @@ jobs:
     - name: Run tests
       run: docker run -d -p 8020:88 test4 sh -c "curl localhost:8020"
 
-    - name: Log test results
-      run: docker logs test4
