@@ -1,0 +1,2 @@
+docker build -t my-nginx-image .
+docker run -d -p 888:88 my-nginx-image
