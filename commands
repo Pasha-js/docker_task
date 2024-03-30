@@ -1,0 +1,2 @@
+docker run -it --name test3 -p 88:88 test3
+docker exec -it test3 /bin/sh
