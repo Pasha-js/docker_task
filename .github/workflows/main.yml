@@ -20,4 +20,4 @@ jobs:
 
     - name: Run tests
       run: |
-        curl -s http://localhost:888 | grep -q "<h1>" && echo "Found <h1> tag" || echo "No <h1> tag found"
+        curl -s http://localhost:888
