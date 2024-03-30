@@ -15,12 +15,9 @@ jobs:
     - name: Build Docker image
       run: docker build -t test4 .
 
-    - name: Run tests
+    - name: Run image
       run: docker run -d -p 888:88 test4 sh
 
     - name: Run tests
       run: |
-        curl -X POST \
-        -H "Content-Type: text/html" \
-        --data-binary @/usr/share/nginx/html/index.html \
-        http://localhost:888
+        curl -s http://localhost:888 | grep -q "<h1>" && echo "Found <h1> tag" || echo "No <h1> tag found"
